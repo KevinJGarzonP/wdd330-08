@@ -4,6 +4,21 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  if (cartItems.length > 0) {
+    const totalDisplayer = document.querySelector(".total-info");
+    totalDisplayer.style.display = "block";
+
+    let totalAmount = 0;
+
+    cartItems.forEach(item => {
+      totalAmount += item.FinalPrice;
+    });
+
+    const totalPaymentP = document.querySelector(".total-amount");
+    totalPaymentP.innerHTML = `Total: $${totalAmount}`;
+    console.log(totalAmount);
+  }
 }
 
 function cartItemTemplate(item) {
