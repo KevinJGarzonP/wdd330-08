@@ -43,3 +43,7 @@ function cartItemTemplate(item) {
 renderCartContents();
 
 GamepadButton
+
+import {loadHeaderFooter} from "./utils.mjs";
+
+loadHeaderFooter();
