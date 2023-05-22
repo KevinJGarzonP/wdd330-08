@@ -35,3 +35,39 @@ export function getParam(param) {
   return product;
 }
 
+export async function renderTemplate(templateFunction, element, data, callback, position = "afterbegin", clear = true) {
+  if (clear) {
+      element.innerHTML = "";
+  }
+  
+  const htmlString = await templateFunction(data);
+
+  element.insertAdjacentHTML(position, htmlString);
+  if(callback) {
+    callback(data)
+  }
+}
+
+function loadTemplate(path) {
+  return async function () {
+    let response = await fetch (path);
+    if (response.ok) {
+      let text = await response.text();
+
+      return text;
+    }
+  }
+}
+
+
+export async function loadHeaderFooter () {
+  const headerTemplateFunction = loadTemplate("/partials/header.html");
+  const footerTemplateFunction = loadTemplate("/partials/footer.html");
+
+  const header = document.querySelector("#header");
+  const footer = document.querySelector("#footer");
+
+  renderTemplate(headerTemplateFunction, header);
+  renderTemplate(footerTemplateFunction, footer);
+
+}
