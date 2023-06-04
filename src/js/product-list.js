@@ -1,6 +1,9 @@
 import productList from "./productList.mjs";
 import {loadHeaderFooter} from "./utils.mjs";
+import { getParam } from "./utils.mjs";
 
-let tentList = productList("tents", ".product-list");
+let category = getParam("category");
+
+let tentList = productList(category, ".product-list");
 
 loadHeaderFooter();
