@@ -23,8 +23,62 @@
         <h2>Review & Place your Order</h2>
         <form>
           <fieldset>
-            
+            <legend>
+              Shipping
+            </legend>
+            <label for="fName">First Name
+              <input type="text" id="fName" name="fName" required>
+            </label>
+            <label for="lName">Last Name
+              <input type="text" id="lName" name="lName" required>
+            </label>
+            <label for="Street">Street
+              <input type="text" id="Street" name="Street" required>
+            </label>
+            <label for="City">City
+              <input type="text" id="City" name="City" required>
+            </label>
+            <label for="State">State
+              <input type="text" id="State" name="State" required>
+            </label>
+            <label for="Zip">Zip
+              <input type="text" size="5" id="Zip" name="Zip" required>
+            </label> 
           </fieldset>
+
+          <fieldset>
+            <legend>Payment</legend>
+              <label for="cardNumber">Card Number
+                <input type="text" size="16" id="cardNumber" name="cardNumber" required>
+              </label>
+              <label for="expiration">Expiration
+                <input type="text" id="expiration" name="expiration" required>
+              </label>
+              <label for="code">Security Code
+                <input type="text" size="3" id="code" name="code" required>
+              </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Order Sumary</legend>
+              <div>
+                <p> Item Subtotal<span id="items"></span></p>
+                <p><span id="subtotal"></span></p>
+              </div>
+              <div>
+                <p> Shipping Estimate</p>
+                <p><span id="shipping"></span></p>
+              </div>
+              <div>
+                <p> Tax</p>
+                <p><span id="tax"></span></p>
+              </div>
+              <div>
+                <p> Order Total</p>
+                <p><span id="total"></span></p>
+              </div>
+          </fieldset>
+          <input type="button" value="checkout">
         </form>
       </section>
     </main>
